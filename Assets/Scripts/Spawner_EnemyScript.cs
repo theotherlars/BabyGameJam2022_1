@@ -22,6 +22,7 @@ public class Spawner_EnemyScript : MonoBehaviour
         if (TimeSinceLastSpawn > timeBetweenSpawns)
         {
             GameObject spawnedEnemy = Instantiate(Enemies[0], transform.position, transform.rotation);
+            TimeSinceLastSpawn = 0;
         }
 
         TimeSinceLastSpawn += Time.deltaTime;
