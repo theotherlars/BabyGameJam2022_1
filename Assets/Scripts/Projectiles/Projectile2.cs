@@ -30,10 +30,10 @@ public class Projectile2 : ProjectileBase
         newVelocity.y = magnitude * frequency * Mathf.Cos(Time.time * frequency);
         rb.velocity = newVelocity;
 
-        Vector2 tempPos;
-        tempPos.x = movementSpeed;
-        tempPos.y = magnitude * frequency * Mathf.Cos(Time.time * frequency);
-        transform.position = tempPos;
+        // Vector2 tempPos;
+        // tempPos.x = movementSpeed;
+        // tempPos.y = magnitude * frequency * Mathf.Cos(Time.time * frequency);
+        // transform.position = tempPos;
     }
 
 }
