@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   PointToMoveTowards: {fileID: 1484229599358023418, guid: 74c9d34af2953467595a4692f2abcc98, type: 3}
+  zigzagValue: {x: 10, y: 5}
+  maxZigZagRange: 0
 --- !u!1 &8924305729713492357
 GameObject:
   m_ObjectHideFlags: 0
