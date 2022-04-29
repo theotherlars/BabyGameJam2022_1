@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetRotationScript : MonoBehaviour
+public class PlayerControlScript : MonoBehaviour
 {
 
 
@@ -11,6 +11,16 @@ public class PlanetRotationScript : MonoBehaviour
     void Update()
     {
         PlayerRotate();
+
+        Fire();
+    }
+
+    private static void Fire()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            Debug.Log("Firing");
+        }
     }
 
     private void PlayerRotate()
