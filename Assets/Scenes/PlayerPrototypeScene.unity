@@ -271,12 +271,34 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1484229599358023417, guid: 74c9d34af2953467595a4692f2abcc98, type: 3}
+      propertyPath: bulletToSpawn
+      value: 
+      objectReference: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
     - target: {fileID: 1484229599358023418, guid: 74c9d34af2953467595a4692f2abcc98, type: 3}
       propertyPath: m_Name
       value: Player (Planet)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74c9d34af2953467595a4692f2abcc98, type: 3}
+--- !u!1 &1053261950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1484229598983732926, guid: 74c9d34af2953467595a4692f2abcc98, type: 3}
+  m_PrefabInstance: {fileID: 911513970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1053261953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053261950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletToSpawn: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
 --- !u!1 &1219405075
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +498,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1807696487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5386386036345470865, guid: 74c9d34af2953467595a4692f2abcc98, type: 3}
+  m_PrefabInstance: {fileID: 911513970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1807696490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807696487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletToSpawn: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
 --- !u!1001 &2917349368107488361
 PrefabInstance:
   m_ObjectHideFlags: 0

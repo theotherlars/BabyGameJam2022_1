@@ -7,22 +7,17 @@ public class PlayerControlScript : MonoBehaviour
 
 
     public float playerTurnSpeed;
+    
+    
 
     void Update()
     {
         PlayerRotate();
 
-        Fire();
-    }
+        
 
-    private static void Fire()
-    {
-        if (Input.GetButton("Fire1"))
-        {
-            Debug.Log("Firing");
-        }
+        
     }
-
     private void PlayerRotate()
     {
         Vector3 currentPos = transform.eulerAngles;
