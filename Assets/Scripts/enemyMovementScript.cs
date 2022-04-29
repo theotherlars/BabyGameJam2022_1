@@ -6,7 +6,7 @@ public class enemyMovementScript : MonoBehaviour
 {
 
     public float moveSpeed;
-    public Vector3 moveDirection;
+    //public Vector3 moveDirection;
 
     public GameObject PointToMoveTowards;
 
@@ -22,7 +22,7 @@ public class enemyMovementScript : MonoBehaviour
     void Update()
     {
          Vector2 currentPos = transform.position;
-        // transform.position = currentPos + moveDirection * Time.deltaTime;
+        // transform.position = currentPos + moveDirection * Time.deltaTime; 
 
 
         transform.position = Vector2.MoveTowards(currentPos, PointToMoveTowards.transform.position, moveSpeed * Time.deltaTime);
