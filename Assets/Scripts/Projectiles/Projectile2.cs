@@ -25,9 +25,15 @@ public class Projectile2 : ProjectileBase
     }
 
     private void Move(){
-        direction = transform.up;
-        transform.position = pos + direction * Mathf.Sin(Time.time * frequency) * magnitude;
-        rb.velocity = direction * movementSpeed * Time.deltaTime;
+        Vector2 newVelocity;
+        newVelocity.x = movementSpeed;
+        newVelocity.y = magnitude * frequency * Mathf.Cos(Time.time * frequency);
+        rb.velocity = newVelocity;
+
+        Vector2 tempPos;
+        tempPos.x = movementSpeed;
+        tempPos.y = magnitude * frequency * Mathf.Cos(Time.time * frequency);
+        transform.position = tempPos;
     }
 
 }

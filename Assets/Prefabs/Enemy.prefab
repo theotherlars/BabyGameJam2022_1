@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8924305728882982434}
   - component: {fileID: 8924305728882982433}
   - component: {fileID: 8924305728882982435}
+  - component: {fileID: 154522146}
+  - component: {fileID: 154522142}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +102,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   PointToMoveTowards: {fileID: 1484229599358023418, guid: 74c9d34af2953467595a4692f2abcc98, type: 3}
+--- !u!70 &154522146
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924305728882982432}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
+--- !u!114 &154522142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8924305728882982432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580bde7d0a645bb4ba127b71c27fc977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 1
+  onHealthGain:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthLost:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8924305729713492357
 GameObject:
   m_ObjectHideFlags: 0

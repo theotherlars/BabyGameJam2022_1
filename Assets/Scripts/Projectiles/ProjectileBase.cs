@@ -13,6 +13,7 @@ public class ProjectileBase : MonoBehaviour
     [SerializeField]Vector2 damage;
     [HideInInspector] public float timeBeforeDestroy = 5f;
     [HideInInspector] public Rigidbody2D rb;
+    public GameObject explosion;
     public UnityEvent onHit;
 
     public virtual void Init(){
@@ -26,7 +27,4 @@ public class ProjectileBase : MonoBehaviour
         }
         enemy.LoseHealth(damageToApply);
     }
-
-
-
 }
