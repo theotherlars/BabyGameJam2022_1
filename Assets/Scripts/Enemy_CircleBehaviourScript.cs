@@ -11,6 +11,7 @@ public class Enemy_CircleBehaviourScript : MonoBehaviour
     [Header("Variables controlling enemy moving inwards")]
     [SerializeField] float timeBetweenEncomposaing;
     [SerializeField] float radiusDecreaseValue;
+    [SerializeField] GameObject bullet;
 
 
 
@@ -27,6 +28,7 @@ public class Enemy_CircleBehaviourScript : MonoBehaviour
     {
         _centre = transform.position;
         playerObject = GameObject.Find("Player (Planet)");
+        StartCoroutine("EnemyShoot");
     }
 
     private void Update()
@@ -45,8 +47,11 @@ public class Enemy_CircleBehaviourScript : MonoBehaviour
         }
 
         TimeSinceLastRadiusSubtraction += Time.deltaTime;
-        
+
         RotateTowardsPlayer();
+
+
+
 
     }
 
@@ -58,4 +63,13 @@ public class Enemy_CircleBehaviourScript : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
     }
+
+    IEnumerator EnemyShoot()
+    {
+        yield return new WaitForSeconds(2);
+        Instantiate(bullet, transform.position, transform.rotation);
+        StartCoroutine("EnemyShoot");
+
+    }
+
 }
