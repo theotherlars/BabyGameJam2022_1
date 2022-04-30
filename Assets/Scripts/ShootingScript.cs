@@ -25,7 +25,7 @@ public class ShootingScript : MonoBehaviour
         {
             if (canFireCanon == true)
             {
-                Instantiate(bulletToSpawn, transform.position, transform.rotation);
+                Instantiate(bulletToSpawn, transform.position, transform.rotation );
             }
         }
     }
