@@ -8,6 +8,9 @@ public class ShootingScript : MonoBehaviour
     [Header("Bullets")]
     public GameObject bulletToSpawn;
 
+    float timeSinceLastShot;
+    [SerializeField] float coolDownOnShot;
+
 
     [Header("TogglesToActivateCanons")]
     [SerializeField] bool canFireCanon;
@@ -21,13 +24,22 @@ public class ShootingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown(firingKey))
+
+
+
+        if (timeSinceLastShot > coolDownOnShot)
         {
-            if (canFireCanon == true)
+            if (Input.GetButtonDown(firingKey))
             {
-                Instantiate(bulletToSpawn, transform.position, transform.rotation );
+                if (canFireCanon == true)
+                {
+                    Instantiate(bulletToSpawn, transform.position, transform.rotation);
+                    timeSinceLastShot = 0;
+                }
             }
         }
+
+        timeSinceLastShot += Time.deltaTime;
     }
 
 }
