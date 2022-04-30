@@ -319,9 +319,9 @@ MonoBehaviour:
   onHit:
     m_PersistentCalls:
       m_Calls: []
-  frequency: 6
+  frequency: 4
   magnitude: 2
-  rotationSpeed: 0.88
+  rotationSpeed: 0.83
   from: {x: 0, y: 0, z: 135}
   to: {x: 0, y: 0, z: 225}
   childPos: {fileID: 4981366404536218309}
