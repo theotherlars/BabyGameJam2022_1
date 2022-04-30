@@ -10,10 +10,10 @@ public class PlayerControlScript : MonoBehaviour
 
 
 
+
     void Update()
     {
         PlayerRotate();
-
     }
     private void PlayerRotate()
     {

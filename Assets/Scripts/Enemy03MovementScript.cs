@@ -13,9 +13,16 @@ public class Enemy03MovementScript : MonoBehaviour
     [SerializeField] Vector3 pointA;
     [SerializeField] Vector3 pointB;
 
+
+    private void Awake() {
+        pointA = transform.position;
+        pointB = pointA + new Vector3(40,0,0);
+    }
     void Start()
     {
+        
         StartCoroutine("MoveDownAfterCountDown");
+        
     }
 
     void Update()
