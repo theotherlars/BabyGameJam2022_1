@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShootingScript : MonoBehaviour
 {
 
+    public List<ActiveWeapon> currentWeapons = new List<ActiveWeapon>();
+
     [Header("Bullets")]
     public GameObject bulletToSpawn;
 
@@ -16,8 +18,6 @@ public class ShootingScript : MonoBehaviour
     [SerializeField] bool canFireCanon;
 
     [Header("TogglesToActivateCanons")]
-
-
     public string firingKey;
 
 
@@ -39,5 +39,15 @@ public class ShootingScript : MonoBehaviour
 
         timeSinceLastShot += Time.deltaTime;
     }
+}
 
+[System.Serializable]
+public class ActiveWeapon{
+    int weaponInt;
+    KeyCode key;
+
+    public ActiveWeapon(int _weaponInt, KeyCode _key){
+        weaponInt = _weaponInt;
+        key = _key;
+    }
 }

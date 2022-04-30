@@ -22,10 +22,11 @@ public class EnemyBase : Health {
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
+    private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.CompareTag("Player")){
             if(other.gameObject.TryGetComponent(out PlayerManager pm)){
                 pm.LoseHealth(1);
+                Destroy(gameObject);
             }
         }
     }
