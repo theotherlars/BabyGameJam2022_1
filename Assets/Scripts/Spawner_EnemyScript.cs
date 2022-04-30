@@ -8,21 +8,21 @@ public class Spawner_EnemyScript : MonoBehaviour
     public List<GameObject> Enemies;
 
     private float TimeSinceLastSpawn;
-    [SerializeField] public float timeBetweenSpawns;
+    private float timeBetweenSpawn;
+    [SerializeField] public Vector2 timeBetweenSpawns;
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
+    void Start(){
+        timeBetweenSpawn = Random.Range(timeBetweenSpawns.x,timeBetweenSpawns.y);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (TimeSinceLastSpawn > timeBetweenSpawns)
+        if (TimeSinceLastSpawn > timeBetweenSpawn)
         {
             GameObject spawnedEnemy = Instantiate(Enemies[0], transform.position, transform.rotation);
             TimeSinceLastSpawn = 0;
+            timeBetweenSpawn = Random.Range(timeBetweenSpawns.x,timeBetweenSpawns.y);
         }
 
         TimeSinceLastSpawn += Time.deltaTime;

@@ -36,8 +36,7 @@ public class MiniBomb : Projectile2
         timeSinceSpawn += Time.deltaTime;
     }
 
-    IEnumerator Blink(float duration)
-    {print("here");
+    IEnumerator Blink(float duration){
         light2D.intensity = 0;
         float timer = 0;
         while(timer < duration / 2){

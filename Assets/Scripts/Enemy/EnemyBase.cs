@@ -19,5 +19,13 @@ public class EnemyBase : Health {
     void Death(){
         Destroy(gameObject);
     }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.CompareTag("Player")){
+            if(other.gameObject.TryGetComponent(out PlayerManager pm)){
+                pm.LoseHealth(1);
+            }
+        }
+    }
     
 }
