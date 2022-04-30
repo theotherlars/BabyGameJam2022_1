@@ -22,12 +22,19 @@ public class UpgradeMenuHandler : MonoBehaviour
             StartCoroutine(Wait(0.8f));
         }
         else{
-            StopCoroutine(Wait(0.8f));
+            // StopCoroutine(Wait(0.8f));
             actionButton = null;
             Time.timeScale = 1;
             anim.Play("UpgradeMenuClose",0);
         }
     }
+
+    public void CloseMenu(){
+        actionButton = null;
+        Time.timeScale = 1;
+        anim.Play("UpgradeMenuClose",0);
+    }
+    
     IEnumerator Wait(float timer){
         yield return new WaitForSeconds(timer);
         if(active){

@@ -16,6 +16,7 @@ public class PlayerManager : Health {
     float[] timeSinceLastShot = new float[3]{0,0,0};
     public int IngameCurrency;  // currency used to purchase upgrades
     public UnityEvent onNewSlot;
+    Animator anim; 
 
     private void Awake() {
         if(Instance == null){
@@ -25,6 +26,7 @@ public class PlayerManager : Health {
             Destroy(this);
         }
         currentHealth = maxHealth;
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update() {
@@ -75,6 +77,16 @@ public class PlayerManager : Health {
     public void NewSlot(){
         if(slotsAvailable + 1 <= maxSlots){
             slotsAvailable++;
+            switch(slotsAvailable){
+                case 2 : {
+                    anim.Play("spaceship_powerup_right",0);
+                    break;
+                }
+                case 3 : {
+                    anim.Play("spaceship_powerup_left",0);
+                    break;
+                }
+            }
             onNewSlot.Invoke();
         }
     }
