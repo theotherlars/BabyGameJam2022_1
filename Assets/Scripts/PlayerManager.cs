@@ -17,6 +17,14 @@ public class PlayerManager : Health {
 
     public UnityEvent onNewSlot;
 
+    public int IngameCurrency;  // currency used to purchase upgrades
+
+    public void IncreaseCurrencyCount(int amount)
+    {
+        IngameCurrency = IngameCurrency + amount;
+    }
+
+
     private void Awake() {
         if(Instance == null){
             Instance = this;
