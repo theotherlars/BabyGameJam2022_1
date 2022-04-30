@@ -321,7 +321,7 @@ MonoBehaviour:
       m_Calls: []
   frequency: 6
   magnitude: 2
-  rotationSpeed: 0.84
+  rotationSpeed: 0.88
   from: {x: 0, y: 0, z: 135}
   to: {x: 0, y: 0, z: 225}
   childPos: {fileID: 4981366404536218309}
