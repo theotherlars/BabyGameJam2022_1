@@ -25,8 +25,6 @@ public class ShootingScript : MonoBehaviour
     void Update()
     {
 
-
-
         if (timeSinceLastShot > coolDownOnShot)
         {
             if (Input.GetButtonDown(firingKey))
