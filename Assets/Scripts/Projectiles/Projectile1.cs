@@ -16,7 +16,9 @@ public class Projectile1 : ProjectileBase
     }
 
     private void FixedUpdate() {
-        Move();
+        if(allowMovement){
+            Move();
+        }
     }
 
     private void Move(){
