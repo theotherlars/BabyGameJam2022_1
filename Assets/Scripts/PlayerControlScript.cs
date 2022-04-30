@@ -7,16 +7,13 @@ public class PlayerControlScript : MonoBehaviour
 
 
     public float playerTurnSpeed;
-    
-    
+
+
 
     void Update()
     {
         PlayerRotate();
 
-        
-
-        
     }
     private void PlayerRotate()
     {

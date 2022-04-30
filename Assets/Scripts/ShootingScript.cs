@@ -5,21 +5,29 @@ using UnityEngine;
 public class ShootingScript : MonoBehaviour
 {
 
+    [Header("Bullets")]
     public GameObject bulletToSpawn;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+
+    [Header("TogglesToActivateCanons")]
+    [SerializeField] bool canFireCanon;
+
+    [Header("TogglesToActivateCanons")]
+
+
+    public string firingKey;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown(firingKey))
         {
-            Debug.Log("Fire");
-            Instantiate(bulletToSpawn, transform.position, transform.rotation);
+            if (canFireCanon == true)
+            {
+                Instantiate(bulletToSpawn, transform.position, transform.rotation);
+            }
         }
     }
+
 }

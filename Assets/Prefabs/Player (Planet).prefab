@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1484229599358023399}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1653967818
 SpriteRenderer:
@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8090442512784497623}
   - component: {fileID: 1441287798356678972}
+  - component: {fileID: 9219191983290372022}
   m_Layer: 0
   m_Name: Tower03
   m_TagString: Untagged
@@ -168,6 +169,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9219191983290372022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140999038083451706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletToSpawn: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
+  canFireCanon: 1
+  firingKey: FireCanon03
 --- !u!1 &1484229598983732926
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1484229598983732925}
   - component: {fileID: 1484229598983732924}
+  - component: {fileID: 1053261953}
   m_Layer: 0
   m_Name: Tower01
   m_TagString: Untagged
@@ -198,7 +215,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1484229599358023399}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1484229598983732924
 SpriteRenderer:
@@ -252,6 +269,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1053261953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484229598983732926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletToSpawn: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
+  canFireCanon: 1
+  firingKey: FireCanon01
 --- !u!1 &1484229599358023418
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +295,7 @@ GameObject:
   - component: {fileID: 1484229599358023399}
   - component: {fileID: 1484229599358023416}
   - component: {fileID: 1484229599358023417}
+  - component: {fileID: 634317047}
   m_Layer: 0
   m_Name: Player (Planet)
   m_TagString: Untagged
@@ -282,8 +315,8 @@ Transform:
   m_LocalScale: {x: 2.2021, y: 2.2021, z: 2.2021}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1484229598983732925}
   - {fileID: 1653967817}
+  - {fileID: 1484229598983732925}
   - {fileID: 736968761294206099}
   - {fileID: 8090442512784497623}
   - {fileID: 5406988654089556490}
@@ -355,6 +388,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTurnSpeed: 200
+--- !u!58 &634317047
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484229599358023418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.02708234}
+  serializedVersion: 2
+  m_Radius: 0.47291762
 --- !u!1 &2985760399347055316
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5406988654089556490}
   - component: {fileID: 6504274485042435688}
+  - component: {fileID: 8470836479484063915}
   m_Layer: 0
   m_Name: Tower04
   m_TagString: Untagged
@@ -439,6 +489,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8470836479484063915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2985760399347055316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletToSpawn: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
+  canFireCanon: 1
+  firingKey: FireCanon04
 --- !u!1 &5386386036345470865
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 736968761294206099}
   - component: {fileID: 4847149034051106259}
+  - component: {fileID: 1807696490}
   m_Layer: 0
   m_Name: Tower02
   m_TagString: Untagged
@@ -523,3 +589,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1807696490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5386386036345470865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletToSpawn: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
+  canFireCanon: 1
+  firingKey: FireCanon02
