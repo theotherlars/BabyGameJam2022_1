@@ -3325,7 +3325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yelloWeak: {r: 0.8980392, g: 0.74509805, b: 0.23137255, a: 0.2}
-  yellowStrong: {r: 0.8962264, g: 0.74654543, b: 0.2325116, a: 0.4509804}
+  yellowStrong: {r: 0.8962264, g: 0.74654543, b: 0.2325116, a: 0.29803923}
   changingAlphaValue: 1
 --- !u!114 &1575738136
 MonoBehaviour:
