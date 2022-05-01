@@ -30,7 +30,6 @@ public class Enemy03MovementScript : MonoBehaviour
         //PingPong between 0 and 1
         float time = Mathf.PingPong(Time.time * speed, 1);
         transform.position = Vector3.Lerp(pointA, pointB, time);
-
     }
 
 
@@ -40,7 +39,6 @@ public class Enemy03MovementScript : MonoBehaviour
         pointA.y = pointA.y - 1;
         pointB.y = pointB.y - 1;
         StartCoroutine("MoveDownAfterCountDown");
-
     }
 
 }
