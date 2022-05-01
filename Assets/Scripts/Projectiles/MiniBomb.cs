@@ -11,8 +11,8 @@ public class MiniBomb : Projectile2
     [SerializeField] Color redLight;
     [SerializeField] Color greenLight;
     [SerializeField] int blinkCount;
-    float timeSinceBlink; 
-    float timeSinceSpawn;
+    float timeSinceBlink;
+    float timeSinceSpawned;
     int blinks;
 
     private void Start() {
@@ -20,7 +20,7 @@ public class MiniBomb : Projectile2
     }
 
     private void Update() {
-        if(timeSinceSpawn > timeBeforeExplode){
+        if(timeSinceSpawned > timeBeforeExplode){
             Explode();
         }
         if(timeSinceBlink > (timeBeforeExplode / blinkCount) && blinks <= blinkCount){
@@ -33,7 +33,7 @@ public class MiniBomb : Projectile2
         }
         
         timeSinceBlink += Time.deltaTime;
-        timeSinceSpawn += Time.deltaTime;
+        timeSinceSpawned += Time.deltaTime;
     }
 
     IEnumerator Blink(float duration){

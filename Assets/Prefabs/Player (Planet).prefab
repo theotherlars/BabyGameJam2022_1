@@ -317,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8090442512784497623
 Transform:
   m_ObjectHideFlags: 0
@@ -397,7 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapons: []
   bulletToSpawn: {fileID: 8398998136145660898, guid: f6231e50eae3f214ca7d14d6b33a27a2, type: 3}
+  coolDownOnShot: 0
   canFireCanon: 1
   firingKey: FireCanon03
 --- !u!1 &1484229598983732926
@@ -417,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1484229598983732925
 Transform:
   m_ObjectHideFlags: 0
@@ -497,7 +499,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapons: []
   bulletToSpawn: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
+  coolDownOnShot: 1
   canFireCanon: 1
   firingKey: FireCanon01
 --- !u!1 &1484229599358023418
@@ -512,6 +516,7 @@ GameObject:
   - component: {fileID: 1484229599358023417}
   - component: {fileID: 634317047}
   - component: {fileID: 4499456463847686268}
+  - component: {fileID: 2097197865}
   m_Layer: 0
   m_Name: Player (Planet)
   m_TagString: Player
@@ -537,6 +542,7 @@ Transform:
   - {fileID: 8090442512784497623}
   - {fileID: 5406988654089556490}
   - {fileID: 1032024724}
+  - {fileID: 4944864948984201680}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -563,7 +569,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.02708234}
@@ -616,6 +622,40 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  shootingPos: {fileID: 4944864948984201680}
+  allWeapons:
+  - prefab: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
+    index: 0
+    timeBetweenShots: 1
+  - prefab: {fileID: 4981366404626997344, guid: a5476b01bb8dda348b87489581ab0abf, type: 3}
+    index: 1
+    timeBetweenShots: 3
+  - prefab: {fileID: 8398998136145660898, guid: f6231e50eae3f214ca7d14d6b33a27a2, type: 3}
+    index: 2
+    timeBetweenShots: 2
+  activeWeapons: 000000000000000000000000
+  slotsAvailable: 1
+--- !u!50 &2097197865
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484229599358023418}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2985760399347055316
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,9 +753,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapons: []
   bulletToSpawn: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
+  coolDownOnShot: 0
   canFireCanon: 1
   firingKey: FireCanon04
+--- !u!1 &5252728599771316873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4944864948984201680}
+  m_Layer: 0
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4944864948984201680
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5252728599771316873}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.905, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1484229599358023399}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5386386036345470865
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +816,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5386386036345470865}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.558, z: 0}
+  m_LocalPosition: {x: 0, y: 0.688, z: 0}
   m_LocalScale: {x: 0.16225736, y: 0.21106845, z: 0.77903}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -809,12 +882,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5386386036345470865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d25a3a958f63e47ec8c9d876bbb45718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeapons: []
   bulletToSpawn: {fileID: 4981366404626997344, guid: a5476b01bb8dda348b87489581ab0abf, type: 3}
+  coolDownOnShot: 0
   canFireCanon: 1
   firingKey: FireCanon02
 --- !u!95 &2626390489545447625
@@ -825,7 +900,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5386386036345470865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 1e1ba5a4207b89b488fbc2d69b410c9f, type: 2}
   m_CullingMode: 0
