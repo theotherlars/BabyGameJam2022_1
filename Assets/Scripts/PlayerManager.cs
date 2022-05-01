@@ -17,7 +17,10 @@ public class PlayerManager : Health {
     public int IngameCurrency;  // currency used to purchase upgrades
     public UnityEvent onNewSlot;
     Animator anim; 
-
+    int kills;
+    bool doOnce = true;
+    bool doOnce2 = true;
+    bool doOnce3 = true;
     private void Awake() {
         if(Instance == null){
             Instance = this;
@@ -35,6 +38,21 @@ public class PlayerManager : Health {
     private void Update() {
         HandleWeaponInput();
         HandleShotTimes();
+
+        if(kills == 20 && doOnce){
+            doOnce = false;
+            NewSlot();
+        }
+
+        if(kills == 40 && doOnce2){
+            doOnce2 = false;
+            NewSlot();
+        }
+        
+        if(kills == 60 && doOnce3){
+            doOnce3 = false;
+            NewSlot();
+        }
     }
 
 
@@ -76,6 +94,7 @@ public class PlayerManager : Health {
     
     public void IncreaseCurrencyCount(int amount){
         IngameCurrency = IngameCurrency + amount;
+        kills++;
     }
 
     public void NewSlot(){

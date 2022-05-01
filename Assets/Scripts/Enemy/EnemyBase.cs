@@ -11,7 +11,7 @@ public class EnemyBase : Health {
 
     public static MyDeathEvent onDied = new MyDeathEvent();
     [SerializeField]int onDiedCurrency = 1;
-
+    [SerializeField]ParticleSystem particlesOnDeath;
     private void OnEnable() {
         onDeath.AddListener(Death);
     }
@@ -28,6 +28,7 @@ public class EnemyBase : Health {
     void Death(){
         // broadcast death
         onDied.Invoke(onDiedCurrency);
+        Instantiate(particlesOnDeath, transform.position,Quaternion.identity);
         Destroy(gameObject);
     }
 

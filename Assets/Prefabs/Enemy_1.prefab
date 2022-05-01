@@ -231,6 +231,8 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onDiedCurrency: 1
+  particlesOnDeath: {fileID: 9013779792144784478, guid: d93ea5e982db64da388569854bfc6374, type: 3}
 --- !u!95 &3410603706649077445
 Animator:
   serializedVersion: 4
