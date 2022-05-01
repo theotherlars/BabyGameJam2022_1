@@ -28,14 +28,17 @@ public class PlayerManager : Health {
         currentHealth = maxHealth;
         anim = GetComponentInChildren<Animator>();
     }
+    private void Start() {
+        EnemyBase.onDied.AddListener(IncreaseCurrencyCount);
+    }
 
     private void Update() {
         HandleWeaponInput();
         HandleShotTimes();
     }
 
-    private void HandleShotTimes()
-    {
+
+    private void HandleShotTimes(){
         timeSinceLastShot[0] += Time.deltaTime;
         timeSinceLastShot[1] += Time.deltaTime;
         timeSinceLastShot[2] += Time.deltaTime;
@@ -44,7 +47,7 @@ public class PlayerManager : Health {
     private void HandleWeaponInput()
     {
         if(slotsAvailable >= 1){
-            if(Input.GetKeyDown(KeyCode.Alpha1)){
+            if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.J)){
                 if(timeSinceLastShot[0] > allWeapons[activeWeapons[0]].timeBetweenShots){
                     Shoot(activeWeapons[0]);
                     timeSinceLastShot[0] = 0;
@@ -53,7 +56,7 @@ public class PlayerManager : Health {
         }
         
         if(slotsAvailable >= 2){
-            if(Input.GetKeyDown(KeyCode.Alpha2)){
+            if(Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.K)){
                 if(timeSinceLastShot[1] > allWeapons[activeWeapons[1]].timeBetweenShots){
                     Shoot(activeWeapons[1]);
                     timeSinceLastShot[1] = 0;
@@ -62,7 +65,7 @@ public class PlayerManager : Health {
         }
         
         if(slotsAvailable >= 3){
-            if(Input.GetKeyDown(KeyCode.Alpha3)){
+            if(Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.L)){
                 if(timeSinceLastShot[2] > allWeapons[activeWeapons[2]].timeBetweenShots){
                     Shoot(activeWeapons[2]);
                     timeSinceLastShot[2] = 0;
@@ -70,10 +73,11 @@ public class PlayerManager : Health {
             }
         }
     }
-    public void IncreaseCurrencyCount(int amount)
-    {
+    
+    public void IncreaseCurrencyCount(int amount){
         IngameCurrency = IngameCurrency + amount;
     }
+
     public void NewSlot(){
         if(slotsAvailable + 1 <= maxSlots){
             slotsAvailable++;
@@ -126,10 +130,18 @@ public class Weapon{
     public GameObject prefab;
     public int index;
     public float timeBetweenShots;
+    public Sprite weaponBackground;
+    public Sprite weaponIcon;
+    public bool available = false;
+    public int cost;
 
-    public Weapon(GameObject _prefab, int _index, float _timeBetweenShots){
+    public Weapon(GameObject _prefab, int _index, float _timeBetweenShots, Sprite _weaponBackground, Sprite _weaponIcon, bool _available, int _cost){
         prefab = _prefab;
         index = _index;
         timeBetweenShots = _timeBetweenShots;
+        weaponBackground = _weaponBackground;
+        weaponIcon = _weaponIcon;
+        available = _available;
+        cost = _cost;
     }
 }

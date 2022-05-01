@@ -5,15 +5,11 @@ using UnityEngine.UI;
 
 public class ActionButton : MonoBehaviour
 {
-    Image image;
+    [SerializeField]Image iconImage;
+    [SerializeField]Image backgroundImage;
     
-    // Start is called before the first frame update
-    void Start(){
-        image = GetComponent<Image>();
-    }
-
-    public void UpdateButton(Image _image, Color _color){
-        image.color = _color;
-        image.sprite = _image.sprite;
+    public void UpdateButton(Sprite _image, Sprite _parentImage){
+        iconImage.sprite = _image;
+        backgroundImage.sprite = _parentImage;
     }
 }

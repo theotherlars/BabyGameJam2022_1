@@ -10,7 +10,7 @@ public class ActionBarHandler : MonoBehaviour
     
     private void Start() {
         PlayerManager.Instance.onNewSlot.AddListener(UpdateSlots);
-
+        slots = PlayerManager.Instance.slotsAvailable;
         for(int i = 0; i < slots; i++){
             actionButtons[i].SetActive(true);
         }   

@@ -1,8 +1,16 @@
 using UnityEngine;
+using UnityEngine.Events;
 using System;
+[System.Serializable]
+public class MyDeathEvent : UnityEvent<int>
+{
+
+}
 
 public class EnemyBase : Health {
 
+    public static MyDeathEvent onDied = new MyDeathEvent();
+    [SerializeField]int onDiedCurrency = 1;
 
     private void OnEnable() {
         onDeath.AddListener(Death);
@@ -19,6 +27,7 @@ public class EnemyBase : Health {
 
     void Death(){
         // broadcast death
+        onDied.Invoke(onDiedCurrency);
         Destroy(gameObject);
     }
 

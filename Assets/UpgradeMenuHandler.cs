@@ -7,30 +7,57 @@ public class UpgradeMenuHandler : MonoBehaviour
 {
     Animator anim;
     bool active = false;
-    ActionButton actionButton;
-
+    [SerializeField] ActionButton[] actionButtons;
+    int currentActionButton = -1;
+    [SerializeField] ActionBarHandler actionBarHandler;
+    [SerializeField] UpgradeButton[] upgradeButtons;
     
     void Start(){
+        for(int i = 0; i < upgradeButtons.Length; i++){
+            if(!PlayerManager.Instance.allWeapons[i].available){
+                upgradeButtons[i].Deactivate();
+            }
+        }
+
         anim = GetComponent<Animator>();
+        for(int i = 0; i < PlayerManager.Instance.slotsAvailable; i++){
+            currentActionButton = i;
+            PlayerManager.Instance.allWeapons[i].available = true;
+            SelectUpgrade(PlayerManager.Instance.activeWeapons[i]);
+        }
+        currentActionButton = -1;
     }
 
-    public void ToggleMenu(ActionButton _actionButton){
+
+    private void Update() {
+        for(int i = 0; i < upgradeButtons.Length; i++){
+            if(PlayerManager.Instance.IngameCurrency >= PlayerManager.Instance.allWeapons[i].cost){
+                upgradeButtons[i].Activate();
+            }
+            else{
+                upgradeButtons[i].Deactivate();
+            }
+        }
+    }
+
+    public void ToggleMenu(int _actionButton){
         active = !active;
         if(active){
-            actionButton = _actionButton;
+            currentActionButton = _actionButton ;
             anim.Play("UpgradeMenuOpen",0);
             StartCoroutine(Wait(0.8f));
         }
         else{
             // StopCoroutine(Wait(0.8f));
-            actionButton = null;
+            currentActionButton = -1;
             Time.timeScale = 1;
             anim.Play("UpgradeMenuClose",0);
         }
     }
 
     public void CloseMenu(){
-        actionButton = null;
+        active = false;
+        currentActionButton = -1;
         Time.timeScale = 1;
         anim.Play("UpgradeMenuClose",0);
     }
@@ -43,6 +70,11 @@ public class UpgradeMenuHandler : MonoBehaviour
     }
 
     public void SelectUpgrade(int index){
-        
+        if(currentActionButton != -1){
+            PlayerManager.Instance.activeWeapons[currentActionButton] = index;
+            Weapon weapon = PlayerManager.Instance.allWeapons[index];
+            actionButtons[currentActionButton].UpdateButton(weapon.weaponIcon, weapon.weaponBackground);
+        }
+        CloseMenu();
     }
 }

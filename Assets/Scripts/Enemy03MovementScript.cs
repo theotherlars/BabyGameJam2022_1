@@ -37,7 +37,6 @@ public class Enemy03MovementScript : MonoBehaviour
     IEnumerator MoveDownAfterCountDown()
     {
         yield return new WaitForSeconds(timeBetweenSubtractingDistance);
-        Debug.Log("Pew pew");
         pointA.y = pointA.y - 1;
         pointB.y = pointB.y - 1;
         StartCoroutine("MoveDownAfterCountDown");
