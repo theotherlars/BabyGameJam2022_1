@@ -13,14 +13,14 @@ public class Stars_BackgroundScript : MonoBehaviour
     private void Start()
     {
         starRender = GetComponent<SpriteRenderer>();
-        
+
     }
 
     private void Update()
     {
         //changingAlphaValue = Mathf.Lerp(0,1,100);
         //starRender.color =  Color.Lerp(yellow,white, 2);
-        starRender.color =  Color.Lerp(yelloWeak,yellowStrong, Mathf.PingPong(Time.time, 1));
+        starRender.color = Color.Lerp(yelloWeak, yellowStrong, Mathf.PingPong(Time.time, 1));
     }
 
 
@@ -30,8 +30,8 @@ public class Stars_BackgroundScript : MonoBehaviour
     //     // starRender.color = Mathf.Lerp(yellow, white, 10);
 
 
-    
 
-//}
+
+    //}
 
 }

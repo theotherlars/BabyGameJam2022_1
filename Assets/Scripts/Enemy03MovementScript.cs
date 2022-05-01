@@ -30,18 +30,15 @@ public class Enemy03MovementScript : MonoBehaviour
         //PingPong between 0 and 1
         float time = Mathf.PingPong(Time.time * speed, 1);
         transform.position = Vector3.Lerp(pointA, pointB, time);
-
     }
 
 
     IEnumerator MoveDownAfterCountDown()
     {
         yield return new WaitForSeconds(timeBetweenSubtractingDistance);
-        Debug.Log("Pew pew");
         pointA.y = pointA.y - 1;
         pointB.y = pointB.y - 1;
         StartCoroutine("MoveDownAfterCountDown");
-
     }
 
 }
