@@ -134,7 +134,7 @@ MonoBehaviour:
   Radius: 7
   timeBetweenEncomposaing: 0.5
   radiusDecreaseValue: 0.03
-  bullet: {fileID: 3018455326298568997, guid: 9f9e88cf3e487e042b77e448637aae78, type: 3}
+  bullet: {fileID: 3018455326298568997, guid: 9b5f1bfed6e35499e980c29f3cd3a95c, type: 3}
   offset: -120
 --- !u!65 &14560774
 BoxCollider:
