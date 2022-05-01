@@ -5,14 +5,12 @@ using UnityEngine;
 public class Enemy03MovementScript : MonoBehaviour
 {
 
-
-
     [SerializeField] float speed;
     [SerializeField] float subtractionDistance;
     [SerializeField] float timeBetweenSubtractingDistance;
     [SerializeField] Vector3 pointA;
     [SerializeField] Vector3 pointB;
-
+    public bool dead = false;
 
     private void Awake() {
         pointA = transform.position;
@@ -28,8 +26,14 @@ public class Enemy03MovementScript : MonoBehaviour
     void Update()
     {
         //PingPong between 0 and 1
-        float time = Mathf.PingPong(Time.time * speed, 1);
-        transform.position = Vector3.Lerp(pointA, pointB, time);
+        if(!dead){
+            float time = Mathf.PingPong(Time.time * speed, 1);
+            transform.position = Vector3.Lerp(pointA, pointB, time);
+        }
+        else{
+            transform.position += new Vector3(speed * Time.deltaTime,0,0);
+            transform.RotateAround(transform.position,Vector3.forward,5 * Time.deltaTime);
+        }
     }
 
 
@@ -41,4 +45,7 @@ public class Enemy03MovementScript : MonoBehaviour
         StartCoroutine("MoveDownAfterCountDown");
     }
 
+    public void Dead(){
+        dead = true;
+    }
 }

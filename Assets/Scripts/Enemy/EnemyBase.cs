@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
 using System;
 [System.Serializable]
 public class MyDeathEvent : UnityEvent<int>
@@ -12,6 +13,9 @@ public class EnemyBase : Health {
     public static MyDeathEvent onDied = new MyDeathEvent();
     [SerializeField]int onDiedCurrency = 1;
     [SerializeField]ParticleSystem particlesOnDeath;
+    [SerializeField]List<AudioClip> explosionClips = new List<AudioClip>();
+
+
     private void OnEnable() {
         onDeath.AddListener(Death);
     }
@@ -28,8 +32,16 @@ public class EnemyBase : Health {
     void Death(){
         // broadcast death
         onDied.Invoke(onDiedCurrency);
-        Instantiate(particlesOnDeath, transform.position,Quaternion.identity);
-        Destroy(gameObject);
+        if(particlesOnDeath){
+            
+            Instantiate(particlesOnDeath, transform.position,Quaternion.identity);
+            
+            Destroy(gameObject);
+
+        }
+        if(gameObject.TryGetComponent(out Animator anim)){
+            anim.SetTrigger("Dead");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {

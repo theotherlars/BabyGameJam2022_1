@@ -15,6 +15,8 @@ public class Wave : MonoBehaviour {
     public bool activeWave = false;
     float startTimer;
     float timeBeforeStart;
+    float timeSinceCthulhuSpawn;
+    [SerializeField]GameObject cthulhu;
 
     private void Awake() {
         onWaveStart = new UnityEvent();
@@ -34,13 +36,14 @@ public class Wave : MonoBehaviour {
     private void Update() {
         if(!activeWave){return;}
         timeSinceWaveActive += Time.deltaTime;
-        if(timeSinceWaveActive > timeBeforeCthulhuSpawn){
+        if(timeSinceCthulhuSpawn > timeBeforeCthulhuSpawn && !PlayerManager.Instance.dead){
             SpawnCthulhu();
+            timeSinceCthulhuSpawn = 0;
         }
         
         foreach(var enemy in enemiesThisWave){
             enemy.timeSinceSpawn += Time.deltaTime;
-            if(enemy.timeSinceSpawn > enemy.timeBetweenSpawn){
+            if(enemy.timeSinceSpawn > enemy.timeBetweenSpawn && !PlayerManager.Instance.dead){
                 Spawner_EnemyScript.Instance.Spawn(enemy.prefab);
                 enemy.timeSinceSpawn = 0;
                 enemy.timeBetweenSpawn = UnityEngine.Random.Range(enemy.timeBetweenSpawns.x, enemy.timeBetweenSpawns.y);
@@ -55,7 +58,13 @@ public class Wave : MonoBehaviour {
 
     private void SpawnCthulhu()
     {
-        // Instantiate()
+        if(!PlayerManager.Instance.dead){
+            Instantiate(cthulhu, new Vector3(-20,10,0), Quaternion.identity);
+        }
+    }
+
+    public void StopSpawining(){
+        activeWave = false;
     }
 
     public void EndWave(){

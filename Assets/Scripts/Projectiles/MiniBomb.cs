@@ -15,8 +15,11 @@ public class MiniBomb : Projectile2
     float timeSinceSpawned;
     int blinks;
 
+    [SerializeField]AudioClip explosionClip;
+
     private void Start() {
         light2D.color = greenLight;
+        AudioManager.Instance.audioSource.PlayOneShot(explosionClip);
     }
 
     private void Update() {

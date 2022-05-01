@@ -22,17 +22,22 @@ public class WaveManager : MonoBehaviour
     }
     private void Start() {
         Wave.onWaveEnd.AddListener(NewWave);
+        PlayerManager.Instance.onDeath.AddListener(StopSpawining);
         currentWave = -1;
         NewWave();
     }
 
     private void NewWave(){
-        if(currentWave < waves.Count - 1){
+        if(currentWave < waves.Count - 1 && !PlayerManager.Instance.dead){
             currentWave++;
             waves[currentWave].StartWave(timeBetweenWaves);
         }
-        else{
+        else if(!PlayerManager.Instance.dead){
             onWin.Invoke();
         }
+    }
+
+    private void StopSpawining(){
+        waves[currentWave].StopSpawining();
     }
 }

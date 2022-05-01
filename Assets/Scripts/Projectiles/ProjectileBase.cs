@@ -8,6 +8,7 @@ public class ProjectileBase : MonoBehaviour
     public float movementSpeed;
     public bool allowMovement;
     [SerializeField]bool randomDamage;
+    [SerializeField]List<AudioClip> explosionClips = new List<AudioClip>();
     
     [Tooltip("X = minDamage, Y = maxDamage")]
     [SerializeField]Vector2 damage;
@@ -22,6 +23,8 @@ public class ProjectileBase : MonoBehaviour
 
     public virtual void DealDamage(EnemyBase enemy){
         float damageToApply = damage.x;
+        int index  = Random.Range(0,2);
+        AudioManager.Instance.audioSource.PlayOneShot(explosionClips[index]);
         if(randomDamage){
             damageToApply = Random.Range(damage.x, damage.y);
         }

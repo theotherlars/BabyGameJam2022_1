@@ -325,6 +325,7 @@ MonoBehaviour:
   redLight: {r: 0.9339623, g: 0.3480331, b: 0.3480331, a: 1}
   greenLight: {r: 0.6105479, g: 0.9622642, b: 0.38581347, a: 1}
   blinkCount: 4
+  explosionClip: {fileID: 8300000, guid: 43087fd1d59e76441a16784015a1eede, type: 3}
 --- !u!58 &3696639467012393720
 CircleCollider2D:
   m_ObjectHideFlags: 0

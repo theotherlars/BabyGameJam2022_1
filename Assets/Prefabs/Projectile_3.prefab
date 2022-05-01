@@ -50,6 +50,12 @@ MonoBehaviour:
   movementSpeed: 250
   allowMovement: 1
   randomDamage: 0
+  explosionClips:
+  - {fileID: 8300000, guid: 82407701a948f0e4cb03ec1d908d0463, type: 3}
+  - {fileID: 8300000, guid: 90d9cf15039ce68409063a2212b8a6ba, type: 3}
+  - {fileID: 8300000, guid: 501ec162ac148fb4b8ef30aa37812968, type: 3}
+  - {fileID: 8300000, guid: e3b71c3d515d336479a2d3a61a89bd60, type: 3}
+  - {fileID: 8300000, guid: 5aab880945631694ebb595df0050560b, type: 3}
   damage: {x: 1, y: 2}
   timeBeforeDestroy: 5
   rb: {fileID: 0}

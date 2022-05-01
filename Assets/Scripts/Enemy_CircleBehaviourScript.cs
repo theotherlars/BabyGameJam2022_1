@@ -48,11 +48,9 @@ public class Enemy_CircleBehaviourScript : MonoBehaviour
 
         TimeSinceLastRadiusSubtraction += Time.deltaTime;
 
-        RotateTowardsPlayer();
-
-
-
-
+        if(PlayerManager.Instance.currentHealth > 0){
+            RotateTowardsPlayer();
+        }
     }
 
     private void RotateTowardsPlayer()

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 2818054858241791394}
   - component: {fileID: 7731054956365218939}
   - component: {fileID: 8340796478891595522}
+  - component: {fileID: -2473869185378166440}
+  - component: {fileID: 6657109328704626194}
   m_Layer: 0
   m_Name: Enemy_Cthullo
   m_TagString: Enemy
@@ -51,6 +53,7 @@ MonoBehaviour:
   timeBetweenSubtractingDistance: 6
   pointA: {x: -19.5, y: 9.4, z: 0}
   pointB: {x: 18.7, y: 9.4, z: 0}
+  dead: 0
 --- !u!212 &7731054956365218939
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8b7b7fa41405faa4da8f4978f1d8a52e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10c93694dee670346914add5db77d357, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -167,3 +170,60 @@ PolygonCollider2D:
       - {x: 0.41, y: -0.88}
       - {x: 0.48999998, y: -0.95}
       - {x: 0.75, y: -0.94}
+--- !u!114 &-2473869185378166440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2818054858241791395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580bde7d0a645bb4ba127b71c27fc977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  maxHealth: 20
+  onHealthGain:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthLost:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2818054858241791394}
+        m_TargetAssemblyTypeName: Enemy03MovementScript, Assembly-CSharp
+        m_MethodName: Dead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDiedCurrency: 5
+  particlesOnDeath: {fileID: 0}
+--- !u!95 &6657109328704626194
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2818054858241791395}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed5bb6e62bf04a54a95b309b7c1689f4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -17,10 +17,18 @@ public class PlayerManager : Health {
     public int IngameCurrency;  // currency used to purchase upgrades
     public UnityEvent onNewSlot;
     Animator anim; 
+    public int killsBefore2Slots = 40;
+    public int killsBefore3Slots = 100;
     int kills;
     bool doOnce = true;
     bool doOnce2 = true;
     bool doOnce3 = true;
+
+    public bool dead = false;
+
+    [SerializeField]List<GameObject>shipParts = new List<GameObject>();
+    [SerializeField] GameObject explosion;
+
     private void Awake() {
         if(Instance == null){
             Instance = this;
@@ -30,27 +38,25 @@ public class PlayerManager : Health {
         }
         currentHealth = maxHealth;
         anim = GetComponentInChildren<Animator>();
+        Application.targetFrameRate = 60;
     }
     private void Start() {
         EnemyBase.onDied.AddListener(IncreaseCurrencyCount);
     }
 
     private void Update() {
+        if(dead){return;}
+
         HandleWeaponInput();
         HandleShotTimes();
 
-        if(kills == 20 && doOnce){
+        if(kills == killsBefore2Slots && doOnce){
             doOnce = false;
             NewSlot();
         }
 
-        if(kills == 40 && doOnce2){
+        if(kills == killsBefore3Slots && doOnce2){
             doOnce2 = false;
-            NewSlot();
-        }
-        
-        if(kills == 60 && doOnce3){
-            doOnce3 = false;
             NewSlot();
         }
     }
@@ -116,6 +122,9 @@ public class PlayerManager : Health {
 
     public void Shake(){
         CameraShakeScript.Instance.CameraShake();
+        if(currentHealth == 0){
+            Died();
+        }
     }
 
     public void Shoot(int weaponIndex){
@@ -124,6 +133,22 @@ public class PlayerManager : Health {
 
     public void SetActiveWeapon(int activeWeaponIndex, int weaponIndex){
         activeWeapons[activeWeaponIndex] = weaponIndex;
+    }
+
+    public void Died(){
+        dead = true;
+        foreach(var part in shipParts){
+            GameObject newPart = Instantiate(part, transform.position,Quaternion.identity);
+            if(newPart.TryGetComponent(out Rigidbody2D rb)){
+                if(UnityEngine.Random.value > 0.5){
+                    rb.AddForce(Vector2.left + Vector2.up * 3, ForceMode2D.Impulse);
+                }else{
+                    rb.AddForce(Vector2.right + Vector2.down * 3, ForceMode2D.Impulse);
+                }
+            }
+        }
+        Instantiate(explosion,transform.position,Quaternion.identity);
+        Destroy(gameObject);
     }
 
 

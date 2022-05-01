@@ -6,6 +6,7 @@ public class Projectile1 : ProjectileBase
 {
     Vector2 direction;
     
+    
     public override void Init(){
         base.Init();
         Destroy(gameObject,timeBeforeDestroy);
